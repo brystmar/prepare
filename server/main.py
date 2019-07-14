@@ -71,6 +71,24 @@ def get_evac_advice():
     else:
         return advice
 
+@app.route('/shelteradvice/', methods=["GET"])                                                                    
+def get_shelter_advice():                                                                                         
+    print("get_shelter_advice_called, request.args is:")                                                          
+    print(request.args)                                                                                           
+    shelteradvice_map = {'4301-4499 Eastview Dr New Orleans, LA 70126': 'Planet Fitness',                         
+                         '501 Robert E Lee Blvd New Orleans, LA 70124': 'Ochsner Health Center',                  
+                         '405 Livingston Ave Arabi, LA 70032': 'Walmart Supercenter',                             
+                         '2816-2714 Deer Creek Dr Violet, LA 70092': 'St. Bernard Parish Hospital'}               
+    if request.args is None or request.args.get("address") is None:                                               
+        shelteradvice = None                                                                                      
+    else:                                                                                                         
+        shelteradvice = shelteradvice_map.get(request.args.get("address"))                                        
+                                                                                                                  
+    if shelteradvice is None:                                                                                     
+        return "Ochsner Health Center"                                                                            
+    else:                                                                                                         
+        return shelteradvice                                                                                      
+
 
 @app.route('/generate_mock_user/<int:number_of_users>', methods=["GET"])
 def generate_users(number_of_users):
