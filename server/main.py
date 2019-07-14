@@ -4,6 +4,8 @@ from flask import Flask, abort, request
 from flask_cors import CORS
 
 from database.DatabaseDAO import DatabaseDAO
+from database.MockUserGenerator import generate_mock_users
+
 
 app = Flask(__name__)
 CORS(app)
@@ -26,6 +28,7 @@ def put_public_user_data(user_id):
     if not request.json:
         abort(400)
 
+    print("POST to /user/<id>")
     print(request.json)
 
     user = request.json
@@ -36,9 +39,12 @@ def put_public_user_data(user_id):
 
 @app.route('/user/', methods=["POST"])
 def generate_id_and_put_public_user_data():
+    print("POST to /user")
+    print(request.json)
+
     new_random_user_id = str(uuid.uuid4())
     put_public_user_data(new_random_user_id)
-    return str(uuid.uuid4())
+    return new_random_user_id
 
 @app.route('/evacadvice/', methods=["GET"])
 def get_evac_advice():
@@ -57,3 +63,11 @@ def get_evac_advice():
         return "PREPARE TO EVACUATE"
     else:
         return advice
+
+
+@app.route('/generate_mock_user/<int:number_of_users>', methods=["GET"])
+def generate_users(number_of_users):
+    mocked_users = generate_mock_users(number_of_users)
+    for user_id in mocked_users:
+        database_dao.put_user(user_id, mocked_users.get(user_id))
+    return "Generate Users: " + str(number_of_users)
