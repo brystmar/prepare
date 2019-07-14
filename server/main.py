@@ -14,6 +14,7 @@ DATABASE_FLAT_FILE_PATH = "./database/DatabaseFlatFile.json"
 DATABASE_DUMP_CSV_FILEPATH = "./database/DatabaseFlatFile.csv"
 database_dao = DatabaseDAO(DATABASE_FLAT_FILE_PATH)
 
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
@@ -47,10 +48,11 @@ def generate_id_and_put_public_user_data():
     put_public_user_data(new_random_user_id)
     return new_random_user_id
 
+
 @app.route('/evacadvice/', methods=["GET"])
 def get_evac_advice():
     print("get_evac_advice_called, request.args is:")
-    print(request.args);
+    print(request.args)
     advice_map = {'421 Harmony Street New Orleans, LA 70115': 'SHELTER IN PLACE',
                   '711 Congress St, New Orleans, LA 70117': 'EVACUATE NOW',
                   '140 Oakmont Dr, New Orleans, LA 70128': 'PREPARE TO EVACUATE',
@@ -60,7 +62,7 @@ def get_evac_advice():
     else:
         advice = advice_map.get(request.args.get("address"))
 
-    if advice == None:
+    if advice is None:
         return "PREPARE TO EVACUATE"
     else:
         return advice
@@ -72,6 +74,7 @@ def generate_users(number_of_users):
     for user_id in mocked_users:
         database_dao.put_user(user_id, mocked_users.get(user_id))
     return "Generate Users: " + str(number_of_users)
+
 
 @app.route('/export_database/', methods=["GET"])
 def dump_database_to_csv():
