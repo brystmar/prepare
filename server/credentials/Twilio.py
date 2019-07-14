@@ -1,3 +1,0 @@
-ACCOUNT_SID = None
-AUTH_TOKEN = None
-TEST_SMS_NUMBER = None
