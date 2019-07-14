@@ -5,7 +5,8 @@ from flask_cors import CORS
 
 from database.DatabaseDAO import DatabaseDAO
 from database.MockUserGenerator import generate_mock_users
-
+from NotificationProxy import send_sms
+from credentials.Twilio import TEST_SMS_NUMBER
 
 app = Flask(__name__, static_folder="static", static_url_path='')  
 CORS(app)
@@ -37,6 +38,9 @@ def put_public_user_data(user_id):
     user["id"] = user_id
 
     database_dao.put_user(user_id, user)
+
+    # NOTIFY USER
+    str(send_sms(TEST_SMS_NUMBER, 'You have bee added to to PREPARE. Visit http://prepare.org/user/' + user_id))
 
 
 @app.route('/user/', methods=["POST"])
@@ -80,3 +84,7 @@ def generate_users(number_of_users):
 def dump_database_to_csv():
     database_dao.export_to_csv(DATABASE_DUMP_CSV_FILEPATH)
     return "Database Dumped to" + DATABASE_DUMP_CSV_FILEPATH
+
+@app.route('/send_test_message/', methods=["GET"])
+def send_test_sms():
+    return str(send_sms(TEST_SMS_NUMBER, 'TEST MESSAGE'))
