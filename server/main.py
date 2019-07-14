@@ -7,7 +7,7 @@ from database.DatabaseDAO import DatabaseDAO
 from database.MockUserGenerator import generate_mock_users
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static", static_url_path='')  
 CORS(app)
 
 DATABASE_FLAT_FILE_PATH = "./database/DatabaseFlatFile.json"
