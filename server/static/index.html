@@ -29,8 +29,7 @@
         <img src="https://thenypost.files.wordpress.com/2019/07/071319-barry.jpg?quality=90&strip=all&w=1236&h=820&crop=1" class="d-block w-100" alt="...">
         <div class="carousel-caption d-md-block carousel-text-background">
           <h5>Hurricane Barry</h5>
-          <h6>Louisiana July 16-19</h6>
-          <p>Evacuate Now</p>
+          <h6>July 16-19</h6>
         </div>
       </div>
       <div class="carousel-item">
@@ -38,14 +37,13 @@
         <div class="carousel-caption d-md-block carousel-text-background">
           <h5>Lafayette Parish Flooding</h5>
           <h6>July 16-25</h6>
-          <p>Evacuate Now</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="https://thenypost.files.wordpress.com/2019/07/ridgecrest-earthquake.jpg?quality=90&strip=all&w=1236&h=820&crop=1" class="d-block w-100" alt="...">
         <div class="carousel-caption d-md-block carousel-text-background">
-          <h5>Earthquake, California</h5>
-          <p>Aftershock Expected</p>
+          <h5>Hurricane Chantal</h5>
+          <h6>Greater Antilles</h6>
         </div>
       </div>
     </div>
@@ -59,17 +57,17 @@
     </a>
   </div>
 </div>
-  
+
   <div class="form-group" id="address-input">
     <form>
       <label for="address">Where are you staying?</label>
-      <input class="form-control" id="address" placeholder="123 Main Street, Seattle, WA 98121" required>
+      <input class="form-control" id="address" placeholder="Enter address" required>
     </form>
   </div>
  
  <div id="evacuate-advice">
         <div id="evacuate-advice-shelter-in-place" class="alert alert-danger" role="alert">
-  Shelter-in Place
+  Shelter In-Place
     </div>
     <div id="evacuate-advice-evacuate-now" class="alert alert-danger" role="alert">
   Evacuate Now
@@ -78,36 +76,29 @@
   Prepare to Evacuate
     </div>
      <div id="evacuate-advice-no-need-to-evacuate" class="alert alert-success" role="alert">
-  No need to Evacuate
+  No Immediate Danger
     </div>   
   </div>
   
   <div class="form-group" id="shelter-section">
     <label for="shelter-selection">Your nearest shelters:</label>
-    <select multiple class="form-control" id="shelter-selection">
-      <option>99 Jump Street, NO</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <select single class="form-control" id="shelter-selection">
+<option>Planet Fitness: 4001 General De Gaulle Dr, New Orleans, LA 70114</option>
+      <option>New Orleans Mission: 1130 Oretha Castle Haley Blvd, New Orleans, LA 70113</option>
+      <option>Raising Cane's River Center Arena: 1700 Mardi Gras Blvd, New Orleans, LA 70114</option>
     </select>
   </div>
 
   
   <div class="form-group" id="phone-number-input">
     <form>
-      <label for="mobile-phone">What's your mobile phone number?</label>
-      <input type="text" class="form-control" id="mobile-phone-number" placeholder="123-456-7890" reqired />
-      <input type="text" class="form-control" id="mobile-phone-number-1" placeholder="123-456-7890" />
-      <input type="text" class="form-control" id="mobile-phone-number-2" placeholder="123-456-7890" />
-      <input type="text" class="form-control" id="mobile-phone-number-3" placeholder="123-456-7890" />
-      <input type="text" class="form-control" id="mobile-phone-number-4" placeholder="123-456-7890" />
+      <label for="mobile-phone">Mobile phone</label>
+      <input type="text" class="form-control" id="mobile-phone-number" placeholder="###-###-####" reqired />
     </form>
   </div>
   
   <div class="form-group" id="party-members-input">
-    <label for="party-members-infants">Infants (0-2 years old)</label>
-    <select class="form-control" id="party-members-infants">
+    <label for="party-members-infants">Infants (up to 2 years old)</label><select class="form-control" id="party-members-infants">
       <option>0</option>
       <option>1</option>
       <option>2</option>
@@ -116,7 +107,7 @@
       <option>5</option>
     </select>
     
-        <label for="party-members-children">Childrens (3-14 years old)</label>
+        <label for="party-members-children">Children (age 3 to 15)</label>
     <select class="form-control" id="party-members-children">
       <option>0</option>
       <option>1</option>
@@ -126,7 +117,7 @@
       <option>5</option>
     </select>
     
-        <label for="party-members-adults">Adults (15-59 years old)</label>
+        <label for="party-members-adults">Adults (age 16 to 64)</label>
     <select class="form-control" id="party-members-adults">
       <option>0</option>
       <option>1</option>
@@ -136,19 +127,9 @@
       <option>5</option>
     </select>
     
-    <label for="party-members-seniors">Senior (60+ years old)</label>
+    <label for="party-members-seniors">Senior (age 65+)</label>
     <select class="form-control" id="party-members-seniors">
-      <option>0</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-    
-    <label for="party-members-seniors">Pets</label>
-    <select class="form-control" id="party-members-pets">
-      <option>0</option>
+<option>0</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -159,16 +140,14 @@
   
    <div class="form-group" id="supplies-input">
      <h4>Your supplies:</h4>
-    <label for="supplies-water">Water (gallons)</label>
+    <label for="supplies-water" id="water-label">Water (gallons) -- 1 per person per day recommended.</label>
     <input type="text" class="form-control" id="supplies-water" placeholder="0">
-
-    
-    <label for="party-members-children">Food (servings)</label>
+     
+    <label for="party-members-children" id="meals-label">Meals (per person) -- 3 per person per day recommended.</label>
     <input type="text" class="form-control" id="supplies-food" placeholder="0">    
   </div>
   
   <button id="submit-button" class="btn btn-primary btn-block" type="submit">Submit</button>
-  
 </div>
   <script src='https://code.jquery.com/jquery-3.3.1.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>

@@ -52,6 +52,34 @@ $(document).ready(function() {
     let shelterSelection = $(this).val();
     $('#address').val(shelterSelection);
   });
+  
+  // Infant selection handler
+  $("#party-members-infants").on('change', function() {
+    let totalPeople = parseInt($("#party-members-infants").val()) + parseInt($("#party-members-children").val()) + parseInt($("#party-members-adults").val()) + parseInt($("#party-members-seniors").val());
+    $('#water-label').html("Water (gallons) -- " + totalPeople + " recommended per day.")
+    $('#meals-label').html("Meals (per person) -- " + totalPeople * 3 + " recommended per day.")
+  });
+  
+  // Child selection handler
+  $("#party-members-children").on('change', function() {
+    let totalPeople = parseInt($("#party-members-infants").val()) + parseInt($("#party-members-children").val()) + parseInt($("#party-members-adults").val()) + parseInt($("#party-members-seniors").val());
+    $('#water-label').html("Water (gallons) -- " + totalPeople + " recommended per day.")
+    $('#meals-label').html("Meals (per person) -- " + totalPeople * 3 + " recommended per day.")
+  });
+  
+  // Adult selection handler
+  $("#party-members-adults").on('change', function() {
+    let totalPeople = parseInt($("#party-members-infants").val()) + parseInt($("#party-members-children").val()) + parseInt($("#party-members-adults").val()) + parseInt($("#party-members-seniors").val());
+    $('#water-label').html("Water (gallons) -- " + totalPeople + " recommended per day.")
+    $('#meals-label').html("Meals (per person) -- " + totalPeople * 3 + " recommended per day.")
+  });
+  
+  // Senior selection handler
+  $("#party-members-seniors").on('change', function() {
+    let totalPeople = parseInt($("#party-members-infants").val()) + parseInt($("#party-members-children").val()) + parseInt($("#party-members-adults").val()) + parseInt($("#party-members-seniors").val());
+    $('#water-label').html("Water (gallons) -- " + totalPeople + " recommended per day.")
+    $('#meals-label').html("Meals (per person) -- " + totalPeople * 3 + " recommended per day.")
+  });
 
   // Submit button handler
   $("#submit-button").on('click', function() {
