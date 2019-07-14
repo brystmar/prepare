@@ -26,8 +26,8 @@ def generate_mock_users(num_of_users):
         user_dict = {
             'id': user_id,
             'address': "Random Street Address " + str(i),
-            'lat': str(random.uniform(30.030049, 30.150631)),
-            'long': str(random.uniform(-89.920564, -89.743159)),
+            'lat': str(random.uniform(29.875876, 30.067870)),
+            'long': str(random.uniform(-90.284975, -89.927135)),
             'phone_numbers': phone_numbers,
             'party_member': {
                 'adults': str(random.randint(0, 3)),
