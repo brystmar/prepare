@@ -1,10 +1,12 @@
 import uuid
 
 from flask import Flask, abort, request
+from flask_cors import CORS
 
 from database.DatabaseDAO import DatabaseDAO
 
 app = Flask(__name__)
+CORS(app)
 
 DATABASE_FLAT_FILE_PATH = "./database/DatabaseFlatFile.json"
 database_dao = DatabaseDAO(DATABASE_FLAT_FILE_PATH)
