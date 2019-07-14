@@ -40,26 +40,5 @@
       "water": "8",
       "food": "34"
     }
-  },
-  "e2ec4226-f76a-47f0-ab42-279cd87fa0dc": {
-    "address": "99 Jump Street, NO",
-    "phone_numbers": [
-      "2345642374",
-      null,
-      null,
-      null,
-      null
-    ],
-    "supplies": {
-      "water": "10",
-      "food": "5"
-    },
-    "party_member": {
-      "adults": "2",
-      "children": "2",
-      "infants": "0",
-      "elderly": "0"
-    },
-    "id": "e2ec4226-f76a-47f0-ab42-279cd87fa0dc"
   }
 }
