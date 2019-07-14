@@ -11,6 +11,7 @@ app = Flask(__name__)
 CORS(app)
 
 DATABASE_FLAT_FILE_PATH = "./database/DatabaseFlatFile.json"
+DATABASE_DUMP_CSV_FILEPATH = "./database/DatabaseFlatFile.csv"
 database_dao = DatabaseDAO(DATABASE_FLAT_FILE_PATH)
 
 @app.route('/')
@@ -71,3 +72,8 @@ def generate_users(number_of_users):
     for user_id in mocked_users:
         database_dao.put_user(user_id, mocked_users.get(user_id))
     return "Generate Users: " + str(number_of_users)
+
+@app.route('/export_database/', methods=["GET"])
+def dump_database_to_csv():
+    database_dao.export_to_csv(DATABASE_DUMP_CSV_FILEPATH)
+    return "Database Dumped to" + DATABASE_DUMP_CSV_FILEPATH
